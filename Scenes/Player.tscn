@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpkcnfdwvlxrw"]
+[gd_scene load_steps=7 format=3 uid="uid://dpkcnfdwvlxrw"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_yyyhi"]
 [ext_resource type="Texture2D" uid="uid://cvm13nk6v4qhh" path="res://Models/Characters/Playah_idle_standing.png" id="2_l3k2e"]
@@ -10,6 +10,14 @@ properties/0/replication_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3tnb"]
 size = Vector2(36, 36)
+
+[sub_resource type="Animation" id="Animation_7eqvv"]
+resource_name = "Run"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cjm82"]
+_data = {
+"Run": SubResource("Animation_7eqvv")
+}
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(355, 83)
@@ -29,3 +37,8 @@ shape = SubResource("RectangleShape2D_r3tnb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cjm82")
+}
