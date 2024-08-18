@@ -16,14 +16,11 @@ func _on_host_pressed():
 	peer.create_server(25566)
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(_add_player)
-
-	# Add player and world
-	_add_player()
+	spawn_world()
 	var enemy = enemy_scene.instantiate()
 	call_deferred("add_child", enemy)
-	var world = world_scene.instantiate()
-	call_deferred("add_child", world)
-
+	# Add player and world
+	_add_player()
 	# Remove the MenuBar after logic
 	menu_bar.queue_free()
 
@@ -34,11 +31,13 @@ func _add_player(id = 1):
 
 func _on_join_pressed():
 	# Set up client
+	spawn_world()
 	var chosen_ip = $MenuBar/TextEdit.text
 	peer.create_client(chosen_ip, 25566)
 	multiplayer.multiplayer_peer = peer
-	var world = world_scene.instantiate()
-	call_deferred("add_child", world)
-
 	# Remove the MenuBar after logic
 	menu_bar.queue_free()
+
+func spawn_world():
+	var world = world_scene.instantiate()
+	call_deferred("add_child", world)
