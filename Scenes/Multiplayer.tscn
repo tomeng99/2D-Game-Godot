@@ -49,7 +49,7 @@ tile_set = ExtResource("4_bonly")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-2, -3)
 stream = ExtResource("5_av21e")
-volume_db = -20.0
+volume_db = -45.777
 autoplay = true
 
 [connection signal="pressed" from="host" to="." method="_on_host_pressed"]
