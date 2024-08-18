@@ -2,6 +2,7 @@ extends Node2D
  
 var peer = ENetMultiplayerPeer.new()
 @export var player_scene: PackedScene
+@export var enemy_scene: PackedScene
  
  
 func _on_host_pressed():
@@ -9,11 +10,14 @@ func _on_host_pressed():
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(_add_player)
 	_add_player()
+	var enemy = enemy_scene.instantiate()
+	call_deferred("add_child",enemy)
  
 func _add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
 	call_deferred("add_child",player)
+
  
  
 func _on_join_pressed():

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btmc6qc4crufb"
+path="res://.godot/imported/Town Music 2.mp3-88a059d761be8f4c5a61c2559536736f.mp3str"
+
+[deps]
+
+source_file="res://Models/FREE_PixelFlow_fantasy/OST/Town Music 2.mp3"
+dest_files=["res://.godot/imported/Town Music 2.mp3-88a059d761be8f4c5a61c2559536736f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

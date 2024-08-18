@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds5q15lgrdv1m"]
+
+[ext_resource type="Script" path="res://Scenes/PracticeEnemy.gd" id="1_77xyj"]
+[ext_resource type="Script" path="res://Components/MyHurtBox.gd" id="1_sig8d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pivpa"]
+size = Vector2(1.03225, 1.02128)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6rid6"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1vf2q"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Enemy" type="Node2D"]
+position = Vector2(182, 16)
+script = ExtResource("1_77xyj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3.05176e-05, 1.14441e-05)
+scale = Vector2(15.5, 23.5)
+shape = SubResource("RectangleShape2D_pivpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1.19209e-07)
+scale = Vector2(15.5, 23.5)
+texture = SubResource("PlaceholderTexture2D_6rid6")
+
+[node name="MyHurtBox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("1_sig8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/MyHurtBox"]
+position = Vector2(-1.90735e-06, 4.76837e-07)
+shape = SubResource("RectangleShape2D_pivpa")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_1vf2q")
