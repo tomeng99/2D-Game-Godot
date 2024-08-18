@@ -1,38 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://bgvykmbs1n82q"]
+[gd_scene load_steps=3 format=4 uid="uid://bgvykmbs1n82q"]
 
-[ext_resource type="Script" path="res://Scripts/Multiplayer.gd" id="1_1tr8j"]
-[ext_resource type="PackedScene" uid="uid://dpkcnfdwvlxrw" path="res://Scenes/Player.tscn" id="2_gsqd6"]
-[ext_resource type="PackedScene" uid="uid://ds5q15lgrdv1m" path="res://Scenes/Enemy.tscn" id="3_aglxw"]
 [ext_resource type="TileSet" uid="uid://baa8ww03muypu" path="res://Resources/TileSetTown.tres" id="4_bonly"]
 [ext_resource type="AudioStream" uid="uid://donq7bjf8tkyd" path="res://music/Endless Adventures.mp3" id="5_av21e"]
 
 [node name="Multiplayer" type="Node2D"]
 position = Vector2(2, 3)
-script = ExtResource("1_1tr8j")
-player_scene = ExtResource("2_gsqd6")
-enemy_scene = ExtResource("3_aglxw")
-
-[node name="host" type="Button" parent="."]
-top_level = true
-offset_left = 18.0
-offset_top = 21.0
-offset_right = 300.0
-offset_bottom = 96.0
-text = "Host"
-metadata/_edit_use_anchors_ = true
-
-[node name="join" type="Button" parent="."]
-top_level = true
-offset_left = 324.0
-offset_top = 25.0
-offset_right = 594.0
-offset_bottom = 97.0
-text = "Join"
-metadata/_edit_use_anchors_ = true
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/Player.tscn", "res://Scenes/Enemy.tscn")
-spawn_path = NodePath("..")
 
 [node name="World" type="Node2D" parent="."]
 
@@ -51,6 +23,3 @@ position = Vector2(-2, -3)
 stream = ExtResource("5_av21e")
 volume_db = -20.0
 autoplay = true
-
-[connection signal="pressed" from="host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="join" to="." method="_on_join_pressed"]
